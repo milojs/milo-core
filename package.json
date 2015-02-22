@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/milojs/milo-core",
   "dependencies": {
+    "dot": "^1.0.3",
     "mol-proto": "^0.1.12"
   },
   "devDependencies": {
