@@ -1,6 +1,6 @@
 'use strict';
 
-var Mixin = require('../../lib/abstract/mixin')
+var Mixin = require('../../lib/milo-core').classes.Mixin
     ,  assert = require('assert')
     , _ = require('mol-proto');
 

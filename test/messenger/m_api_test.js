@@ -1,8 +1,9 @@
 'use strict';
 
-var MessengerAPI = require('../../lib/messenger/m_api')
+var milo = require('../../lib/milo-core')
+    , MessengerAPI = milo.classes.MessengerAPI
     , MyMessageSource = require('./my_m_source')
-    , Messenger = require('../../lib/messenger')
+    , Messenger = milo.Messenger
     , _ = require('mol-proto')
     , assert = require('assert');
 

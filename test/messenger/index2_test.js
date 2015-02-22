@@ -1,6 +1,6 @@
 'use strict';
 
-var Messenger = require('../../lib/messenger')
+var Messenger = require('../../lib/milo-core').Messenger
     , messengerTests = require('./messenger');
 
 

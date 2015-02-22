@@ -1,7 +1,7 @@
 'use strict';
 
 var MyMessageSource = require('./my_m_source')
-    , Messenger = require('../../lib/messenger')
+    , Messenger = require('../../lib/milo-core').Messenger
     , _ = require('mol-proto')
     , assert = require('assert');
 

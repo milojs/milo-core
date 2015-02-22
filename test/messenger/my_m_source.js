@@ -1,6 +1,6 @@
 'use strict';
 
-var MessageSource = require('../../lib/messenger/m_source')
+var MessageSource = require('../../lib/milo-core').classes.MessageSource
     , _ = require('mol-proto');
 
 // Although it is made for the test only, this MessageSource subclass uses

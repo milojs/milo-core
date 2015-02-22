@@ -2,7 +2,7 @@
 
 
 var _ = require('mol-proto')
-    , check = require('../../lib/util/check')
+    , check = require('../../lib/milo-core').util.check
     , Match = check.Match
     , assert = require('assert');
 
