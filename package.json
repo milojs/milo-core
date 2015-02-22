@@ -1,8 +1,11 @@
 {
   "name": "milo-core",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "description": "node.js compatible part of milo",
   "main": "lib/milo-core.js",
+  "browserify": {
+    "transform": ["brfs"]
+  },
   "scripts": {
     "test": "NODE_ENV=test ./node_modules/.bin/mocha --recursive --reporter=spec"
   },
