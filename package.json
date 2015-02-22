@@ -1,6 +1,6 @@
 {
   "name": "milo-core",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "description": "node.js compatible part of milo",
   "main": "lib/milo-core.js",
   "scripts": {
