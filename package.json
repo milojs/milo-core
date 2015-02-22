@@ -1,0 +1,25 @@
+{
+  "name": "milo-core",
+  "version": "0.1.10",
+  "description": "node.js compatible part of milo",
+  "main": "lib/milo-core.js",
+  "scripts": {
+    "test": "NODE_ENV=test ./node_modules/.bin/mocha --recursive --reporter=spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/milojs/milo-core.git"
+  },
+  "author": "",
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/milojs/milo-core/issues"
+  },
+  "homepage": "https://github.com/milojs/milo-core",
+  "dependencies": {
+    "mol-proto": "^0.1.12"
+  },
+  "devDependencies": {
+    "mocha": "^2.1.0"
+  }
+}
