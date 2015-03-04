@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width" charset="utf-8">
+    <title>milo-core</title>
+    <link rel="stylesheet" href="http://getbootstrap.com/2.3.2/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="http://getbootstrap.com/2.3.2/assets/css/bootstrap-responsive.css">
+    <link rel="stylesheet" href="http://getbootstrap.com/2.3.2/assets/css/docs.css">
+    <style>
+      body > .navbar .brand {
+        float:left;
+        text-shadow: rgba(255, 255, 255, 0.0980392) 0px 1px 0px, rgba(255, 255, 255, 0.4) 0px 0px 30px;
+        color: white;
+        margin-left:0px;
+        font-weight:normal;
+      }
+      
+      .bs-docs-sidenav.affix {
+        box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.5);
+        z-index: 10;
+      }
+      
+      .bs-docs-sidenav i{
+        width: 8px;
+        height: 8px;
+        padding: 0px;
+        margin: 0px;
+        display: inline-block;
+        margin-right:0.5em;
+      }
+      
+      .bs-docs-sidenav > li > a {
+          word-wrap: break-word;
+      }
+      
+      .bs-docs-sidenav > li:first-child > a {
+        border-top-right-radius: 6px;
+        border-top-left-radius: 6px;
+      }
+      
+      code[class*="language-"],pre[class*="language-"]{color:black;text-shadow:0 1px white;font-family:Consolas,Monaco,'Andale Mono',monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*="language-"]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*="language-"],pre[class*="language-"]{background:#f5f2f0}:not(pre)>code[class*="language-"]{padding:.1em;border-radius:.3em}.token.comment,.token.prolog,.token.doctype,.token.cdata{color:slategray}.token.punctuation{color:#999}.namespace{opacity:.7}.token.property,.token.tag,.token.boolean,.token.number{color:#905}.token.selector,.token.attr-name,.token.string{color:#690}.token.operator,.token.entity,.token.url,.language-css .token.string,.style .token.string{color:#a67f59;background:hsla(0,0%,100%,.5)}.token.atrule,.token.attr-value,.token.keyword{color:#07a}.token.regex,.token.important{color:#e90}.token.important{font-weight:bold}.token.entity{cursor:help}
+      div.description {margin: 14px 0; padding-top: 14px; border-bottom:1px solid #eee; }
+      .tags {}
+      .ctx-type {
+        display:inline-block;
+        margin-right:0.5em;
+        //- float:right; margin-top:8px
+      }
+      
+      footer iframe{vertical-align:middle;}
+      
+    </style>
+  </head>
+  <body data-spy="scroll" data-target=".scrollspy">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container"><a class="brand">Doxx</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav pull-right sponsored"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <header id="overview" class="jumbotron subhead">
+      <div class="container">
+        <h1>milo-core</h1>
+        <p class="lead"></p>
+      </div>
+    </header>
+    <div class="container">
+      <div class="row">
+        <div class="span3 bs-docs-sidebar">
+          <ul class="nav nav-list bs-docs-sidenav affix-top">
+            <li><a href="../index.html">Main</a></li>
+            <li><a href="../abstract/mixin.js.html">abstract/mixin.js</a></li>
+            <li><a href="../classes.js.html">classes.js</a></li>
+            <li><a href="../config.js.html">config.js</a></li>
+            <li class="active"><a href="../messenger/index.js.html">messenger/index.js</a></li>
+            <li><a href="../messenger/m_api.js.html">messenger/m_api.js</a></li>
+            <li><a href="../messenger/m_api_rx.js.html">messenger/m_api_rx.js</a></li>
+            <li><a href="../messenger/m_source.js.html">messenger/m_source.js</a></li>
+            <li><a href="../messenger/msngr_source.js.html">messenger/msngr_source.js</a></li>
+            <li><a href="../milo-core.js.html">milo-core.js</a></li>
+            <li><a href="../minder.js.html">minder.js</a></li>
+            <li><a href="../model/change_data.js.html">model/change_data.js</a></li>
+            <li><a href="../model/connector.js.html">model/connector.js</a></li>
+            <li><a href="../model/demo.js.html">model/demo.js</a></li>
+            <li><a href="../model/index.js.html">model/index.js</a></li>
+            <li><a href="../model/m_msg_api.js.html">model/m_msg_api.js</a></li>
+            <li><a href="../model/m_path.js.html">model/m_path.js</a></li>
+            <li><a href="../model/model_utils.js.html">model/model_utils.js</a></li>
+            <li><a href="../model/path_msg_api.js.html">model/path_msg_api.js</a></li>
+            <li><a href="../model/path_utils.js.html">model/path_utils.js</a></li>
+            <li><a href="../model/synthesize/create_tree.dot.js.html">model/synthesize/create_tree.dot.js</a></li>
+            <li><a href="../model/synthesize/defines.dot.js.html">model/synthesize/defines.dot.js</a></li>
+            <li><a href="../model/synthesize/delete.dot.js.html">model/synthesize/delete.dot.js</a></li>
+            <li><a href="../model/synthesize/getter.dot.js.html">model/synthesize/getter.dot.js</a></li>
+            <li><a href="../model/synthesize/index.js.html">model/synthesize/index.js</a></li>
+            <li><a href="../model/synthesize/setter.dot.js.html">model/synthesize/setter.dot.js</a></li>
+            <li><a href="../model/synthesize/splice.dot.js.html">model/synthesize/splice.dot.js</a></li>
+            <li><a href="../model/synthesize/traverse_tree.dot.js.html">model/synthesize/traverse_tree.dot.js</a></li>
+            <li><a href="../util/check.js.html">util/check.js</a></li>
+            <li><a href="../util/index.js.html">util/index.js</a></li>
+            <li><a href="../util/logger.js.html">util/logger.js</a></li>
+            <li><a href="../util/logger_class.js.html">util/logger_class.js</a></li>
+          </ul>
+          <div class="scrollspy">
+            <ul class="nav nav-list bs-docs-sidenav affix-top">
+              <li><a href="#Messenger"><i class="alert alert-success"></i><span>Messenger</span></a>
+              </li>
+              <li><a href="#defaultMethods"><i class="alert alert-success"></i><span>defaultMethods</span></a>
+              </li>
+              <li><a href="#init"><i class="alert alert-info"></i><span>init</span></a>
+              </li>
+              <li><a href="#Messenger$destroy"><i class="alert alert-info"></i><span>Messenger$destroy</span></a>
+              </li>
+              <li><a href="#Messenger$on"><i class="alert alert-info"></i><span>Messenger$on</span></a>
+              </li>
+              <li><a href="#_indexOfSubscriber"><i class="alert alert-info"></i><span>_indexOfSubscriber</span></a>
+              </li>
+              <li><a href="#onMessages"><i class="alert alert-info"></i><span>onMessages</span></a>
+              </li>
+              <li><a href="#Messenger$off"><i class="alert alert-info"></i><span>Messenger$off</span></a>
+              </li>
+              <li><a href="#offMessages"><i class="alert alert-info"></i><span>offMessages</span></a>
+              </li>
+              <li><a href="#Messenger$offAll"><i class="alert alert-info"></i><span>Messenger$offAll</span></a>
+              </li>
+              <li><a href="#postMessage"><i class="alert alert-info"></i><span>postMessage</span></a>
+              </li>
+              <li><a href="#postMessageSync"><i class="alert alert-info"></i><span>postMessageSync</span></a>
+              </li>
+              <li><a href="#getSubscribers"><i class="alert alert-info"></i><span>getSubscribers</span></a>
+              </li>
+              <li><a href="#_setMessageSource"><i class="alert alert-info"></i><span>_setMessageSource</span></a>
+              </li>
+              <li><a href="#getMessageSource"><i class="alert alert-info"></i><span>getMessageSource</span></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="span9">
+          <section id="Messenger">
+            <h1>Messenger</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-success radius ctx-type">declaration</div><span>Messenger</span>
+            </p>
+          </section>
+          <div class="description"><p><code>milo.Messenger</code><br />A generic Messenger class that is used for all kinds of messaging in milo. It is subclassed from <a href="../abstract/mixin.js.html">Mixin</a> and it proxies its methods to the host object for convenience.<br />All facets and components have messenger attached to them. Messenger class interoperates with <a href="./m_source.js.html">MessageSource</a> class that connects the messenger to some external source of messages (e.g., DOM events) and <a href="./m_api.js.html">MessengerAPI</a> class that allows to define higher level messages than messages that exist on the source.<br />Messenger class is used internally in milo and can be used together with any objects/classes in the application.<br />milo also defines a global messenger <a href="../mail/index.js.html">milo.mail</a> that dispatches <code>domready</code> event and can be used for any application wide messaging.<br />To initialize your app after DOM is ready use:</p><pre><code>milo.mail.on(&#39;domready&#39;, function() {
+    // application starts
+});
+</code></pre><p>or the following shorter form of the same:</p><pre><code>milo(function() {
+    // application starts
+});
+</code></pre> </div>
+          <pre><code class="language-javascript">var Messenger = _.createSubclass(Mixin, 'Messenger');
+
+var messagesSplitRegExp = Messenger.messagesSplitRegExp = /\s*(?:\,|\s)\s*/;</code></pre>
+          <div class="description"><h4>Messenger instance methods</h4>
+<ul>
+<li><a href="#init">init</a></li>
+<li><a href="#Messenger$on">on</a> (alias - onMessage, deprecated)</li>
+<li><a href="#Messenger$off">off</a> (alias - offMessage, deprecated)</li>
+<li><a href="#onMessages">onMessages</a></li>
+<li><a href="#offMessages">offMessages</a></li>
+<li><a href="#once">once</a></li>
+<li><a href="#onceSync">onceSync</a></li>
+<li><a href="#postMessage">postMessage</a></li>
+<li><a href="#getSubscribers">getSubscribers</a></li>
+</ul>
+<p>&quot;Private&quot; methods</p><ul>
+<li><a href="#_chooseSubscribersHash">_chooseSubscribersHash</a></li>
+<li><a href="#_registerSubscriber">_registerSubscriber</a></li>
+<li><a href="#_removeSubscriber">_removeSubscriber</a></li>
+<li><a href="#_removeAllSubscribers">_removeAllSubscribers</a></li>
+<li><a href="#_callPatternSubscribers">_callPatternSubscribers</a></li>
+<li><a href="#_callSubscribers">_callSubscribers</a></li>
+<li><a href="#_setMessageSource">_setMessageSource</a></li>
+<li><a href="#getMessageSource">getMessageSource</a></li>
+</ul>
+ </div>
+          <pre><code class="language-javascript">_.extendProto(Messenger, {
+    init: init, // called by Mixin (superclass)
+    destroy: Messenger$destroy,
+    on: Messenger$on,
+    once: Messenger$once,
+    onceSync: Messenger$onceSync,
+    onSync: Messenger$onSync,
+    onAsync: Messenger$onAsync,
+    onMessage: Messenger$on, // deprecated
+    off: Messenger$off,
+    offMessage: Messenger$off, // deprecated
+    onMessages: onMessages,
+    offMessages: offMessages,
+    offAll: Messenger$offAll,
+    postMessage: postMessage,
+    postMessageSync: postMessageSync,
+    getSubscribers: getSubscribers,
+    getMessageSource: getMessageSource,
+    _chooseSubscribersHash: _chooseSubscribersHash,
+    _registerSubscriber: _registerSubscriber,
+    _removeSubscriber: _removeSubscriber,
+    _removeAllSubscribers: _removeAllSubscribers,
+    _callPatternSubscribers: _callPatternSubscribers,
+    _callSubscribers: _callSubscribers,
+    _callSubscriber: _callSubscriber,
+    _setMessageSource: _setMessageSource
+});</code></pre>
+          <section id="defaultMethods">
+            <h1>defaultMethods</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-success radius ctx-type">property</div><span>Messenger.defaultMethods</span>
+            </p>
+          </section>
+          <div class="description"><p>A default map of proxy methods used by ComponentFacet and Component classes to pass to Messenger when it is instantiated.<br />This map is for convenience only, it is NOT used internally by Messenger, a host class should pass it for methods to be proxied this way.</p> </div>
+          <pre><code class="language-javascript">Messenger.defaultMethods = {
+    on: 'on',
+    onSync: 'onSync',
+    once: 'once',
+    onceSync: 'onceSync',
+    off: 'off',
+    onMessages: 'onMessages',
+    offMessages: 'offMessages',
+    postMessage: 'postMessage',
+    postMessageSync: 'postMessageSync',
+    getSubscribers: 'getSubscribers'
+};
+
+
+module.exports = Messenger;
+
+
+Messenger.subscriptions = [];</code></pre>
+          <section id="init">
+            <h1>init</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">function</div><span>init()</span>
+            </p>
+          </section>
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>hostObject</td>
+                <td>Object</td>
+                <td><p>Optional object that stores the messenger on one of its properties. It is used to proxy methods of messenger and also as a context for subscribers when they are called by the Messenger. See <code>on</code> method.</p></td>
+              </tr>
+              <tr>
+                <td>proxyMethods</td>
+                <td>Object</td>
+                <td><p>Optional map of method names; key - proxy method name, value - messenger&#39;s method name.</p></td>
+              </tr>
+              <tr>
+                <td>messageSource</td>
+                <td>MessageSource</td>
+                <td><p>Optional messageSource linked to the messenger. If messageSource is supplied, the reference to the messenger will stored on its &#39;messenger&#39; property</p></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p>Messenger instance method<br />Initializes Messenger. Method is called by Mixin class constructor.<br />See <a href="#Messenger$on">on</a> method, <a href="#Messenger">Messenger</a> class above and <a href="./m_source.js.html">MessageSource</a> class.</p> </div>
+          <pre><code class="language-javascript">function init(hostObject, proxyMethods, messageSource) {
+    // hostObject and proxyMethods are used in Mixin and checked there
+    if (messageSource)
+        this._setMessageSource(messageSource);
+
+    _initializeSubscribers.call(this);
+}
+
+
+function _initializeSubscribers() {
+    _.defineProperties(this, {
+        _messageSubscribers: {},
+        _patternMessageSubscribers: {},
+    }, _.CONF);
+}</code></pre>
+          <section id="Messenger$destroy">
+            <h1>Messenger$destroy</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">function</div><span>Messenger$destroy()</span>
+            </p>
+          </section>
+          <div class="description"><p>Destroys messenger. Maybe needs to unsubscribe all subscribers</p> </div>
+          <pre><code class="language-javascript">function Messenger$destroy() {
+    this.offAll();
+    var messageSource = this.getMessageSource();
+    if (messageSource)
+        messageSource.destroy();
+}</code></pre>
+          <section id="Messenger$on">
+            <h1>Messenger$on</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">function</div><span>Messenger$on()</span> -><span>Boolean</span>
+            </p>
+          </section>
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>messages</td>
+                <td></td>
+                <td><p>Message types that should envoke the subscriber.  If string is passed, it can be a sigle message or multiple message types separated by whitespace with optional commas.<br /> If an array of strings is passed, each string is a message type to subscribe for.<br /> If a RegExp is passed, the subscriber will be envoked when the message dispatched on the messenger matches the pattern (or IS the RegExp with identical pattern).<br /> Pattern subscriber does NOT cause any subscription to MessageSource, it only captures messages that are already subscribed to with precise message types.</p></td>
+              </tr>
+              <tr>
+                <td>subscriber</td>
+                <td>Function,Object</td>
+                <td><p>Message subscriber - a function that will be called when the message is dispatched on the messenger (usually via proxied postMessage method of host object).  If hostObject was supplied to Messenger constructor, hostObject will be the context (the value of this) for the subscriber envocation.<br /> Subscriber can also be an object with properties <code>subscriber</code> (function) and <code>context</code> (&quot;this&quot; value when subscriber is called)</p></td>
+              </tr>
+              <tr>
+                <td>return</td>
+                <td>Boolean</td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p>Messenger instance method.<br />Registers a subscriber function for a certain message(s).<br />This method returns <code>true</code> if the subscription was successful. It can be unsuccessful if the passed subscriber has already been subscribed to this message type - double subscription never happens and it is safe to subscribe again - no error or warning is thrown or logged.<br />Subscriber is passed two parameters: <code>message</code> (string) and <code>data</code> (object). Data object is supplied when message is dispatched, Messenger itself adds nothing to it. For example, <a href="../components/c_facets/Events.js.html">events facet</a> sends actual DOM event when it posts message.<br />Usage:</p><pre><code>// subscribes onMouseUpDown to two DOM events on component via events facet.
+myComp.events.on(&#39;mousedown mouseup&#39;, onMouseUpDown);
+function onMouseUpDown(eventType, event) {
+    // ...
+}
+
+myComp.data.on(/.+/, function(msg, data) {
+    logger.debug(msg, data);
+}); // subscribes anonymous function to all non-empty messages on data facet
+// it will not be possible to unsubscribe anonymous subscriber separately,
+// but myComp.data.off(/.+/) will unsubscribe it
+</code></pre><p>If messenger has <a href="./m_source.js.html">MessageSource</a> attached to it, MessageSource will be notified when the first subscriber for a given message is added, so it can subscribe to the source.<br /><a href="../components/c_class.js.html">Components</a> and <a href="../components/c_facet.js.html">facets</a> change this method name to <code>on</code> when they proxy it.<br />See <a href="#postMessage">postMessage</a>.</p> </div>
+          <pre><code class="language-javascript">function Messenger$on(messages, subscriber) {
+    return _Messenger_onWithOptions.call(this, messages, subscriber);
+}
+
+
+function Messenger$once(messages, subscriber) {
+    return _Messenger_onWithOptions.call(this, messages, subscriber, { dispatchTimes: 1 });
+}
+
+function Messenger$onceSync(messages, subscriber) {
+    return _Messenger_onWithOptions.call(this, messages, subscriber, { dispatchTimes: 1, sync: true });
+}
+
+
+function Messenger$onSync(messages, subscriber) {
+    return _Messenger_onWithOptions.call(this, messages, subscriber, { sync: true });
+}
+
+
+function Messenger$onAsync(messages, subscriber) {
+    return _Messenger_onWithOptions.call(this, messages, subscriber, { sync: false });
+}
+
+
+function _Messenger_onWithOptions(messages, subscriber, options) {
+    check(messages, Match.OneOf(String, [String], RegExp));
+    check(subscriber, Match.OneOf(Function, {
+        subscriber: Function,
+        context: Match.Any,
+        options: Match.Optional(Object),
+    }));
+
+    if (typeof subscriber == 'function') {
+        subscriber = {
+            subscriber: subscriber,
+            context: this._hostObject,
+        };
+    }
+
+    if (options) {
+        subscriber.options = subscriber.options || {};
+        _.extend(subscriber.options, options);
+    }
+
+    return _Messenger_on.call(this, messages, subscriber);
+}
+
+
+function _Messenger_on(messages, subscriber) {
+    _.defineProperty(subscriber, '__messages', messages);
+    return _eachMessage.call(this, '_registerSubscriber', messages, subscriber);
+}
+
+
+function _eachMessage(methodName, messages, subscriber) {
+    if (typeof messages == 'string')
+        messages = messages.split(messagesSplitRegExp);
+
+    var subscribersHash = this._chooseSubscribersHash(messages);
+
+    if (messages instanceof RegExp)
+        return this[methodName](subscribersHash, messages, subscriber);
+
+    else {
+        var changed = false;
+
+        messages.forEach(function(message) {
+            var subscriptionChanged = this[methodName](subscribersHash, message, subscriber);
+            changed = changed || subscriptionChanged;
+        }, this);
+
+        return changed;
+    }
+}</code></pre>
+          <section id="_indexOfSubscriber">
+            <h1>_indexOfSubscriber</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">function</div><span>_indexOfSubscriber()</span>
+            </p>
+          </section>
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>list</td>
+                <td></td>
+                <td><p>list of subscribers</p></td>
+              </tr>
+              <tr>
+                <td>subscriber</td>
+                <td>Function,Object</td>
+                <td><p>subscriber function or object with properties <code>subscriber</code> (function) and <code>context</code> (&quot;this&quot; object)</p></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p>Finds subscriber index in the list</p> </div>
+          <pre><code class="language-javascript">function _indexOfSubscriber(list, subscriber) {
+    var self = this;
+    return _.findIndex(list, function(subscr){
+        return subscriber.subscriber == subscr.subscriber
+                &amp;&amp; subscriber.context == subscr.context
+    });
+}</code></pre>
+          <section id="onMessages">
+            <h1>onMessages</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">function</div><span>onMessages()</span>
+            </p>
+          </section>
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>messageSubscribers</td>
+                <td></td>
+                <td><p>Map of message subscribers to be added</p></td>
+              </tr>
+              <tr>
+                <td>return</td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p>Messenger instance method.<br />Subscribes to multiple messages passed as map together with subscribers.<br />Usage:</p><pre><code>myComp.events.onMessages({
+    &#39;mousedown&#39;: onMouseDown,
+    &#39;mouseup&#39;: onMouseUp
+});
+function onMouseDown(eventType, event) {}
+function onMouseUp(eventType, event) {}
+</code></pre><p>Returns map with the same keys (message types) and boolean values indicating whether particular subscriber was added.<br />It is NOT possible to add pattern subscriber using this method, as although you can use RegExp as the key, JavaScript will automatically convert it to string.</p> </div>
+          <pre><code class="language-javascript">function onMessages(messageSubscribers) {
+    check(messageSubscribers, Match.ObjectHash(Match.OneOf(Function, { subscriber: Function, context: Match.Any })));
+
+    var notYetRegisteredMap = _.mapKeys(messageSubscribers, function(subscriber, messages) {
+        return this.on(messages, subscriber);
+    }, this);
+
+    return notYetRegisteredMap;
+}</code></pre>
+          <section id="Messenger$off">
+            <h1>Messenger$off</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">function</div><span>Messenger$off()</span> -><span>Boolean</span>
+            </p>
+          </section>
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>messages</td>
+                <td></td>
+                <td><p>Message types that a subscriber should be removed for.  If string is passed, it can be a sigle message or multiple message types separated by whitespace with optional commas.<br /> If an array of strings is passed, each string is a message type to remove a subscriber for.<br /> If a RegExp is passed, the pattern subscriber will be removed.<br /> RegExp subscriber does NOT cause any subscription to MessageSource, it only captures messages that are already subscribed to with precise message types.</p></td>
+              </tr>
+              <tr>
+                <td>subscriber</td>
+                <td>Function</td>
+                <td><p>Message subscriber - Optional function that will be removed from the list of subscribers for the message(s). If subscriber is not supplied, all subscribers will be removed from this message(s).</p></td>
+              </tr>
+              <tr>
+                <td>return</td>
+                <td>Boolean</td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p>Messenger instance method.<br />Removes a subscriber for message(s). Removes all subscribers for the message if subscriber isn&#39;t passed.<br />This method returns <code>true</code> if the subscriber was registered. No error or warning is thrown or logged if you remove subscriber that was not registered.<br /><a href="../components/c_class.js.html">Components</a> and <a href="../components/c_facet.js.html">facets</a> change this method name to <code>off</code> when they proxy it.<br />Usage:</p><pre><code>// unsubscribes onMouseUpDown from two DOM events.
+myComp.events.off(&#39;mousedown mouseup&#39;, onMouseUpDown);
+</code></pre><p>If messenger has <a href="./m_source.js.html">MessageSource</a> attached to it, MessageSource will be notified when the last subscriber for a given message is removed and there is no more subscribers for this message.</p> </div>
+          <pre><code class="language-javascript">function Messenger$off(messages, subscriber) {
+    check(messages, Match.OneOf(String, [String], RegExp));
+    check(subscriber, Match.Optional(Match.OneOf(Function, {
+        subscriber: Function,
+        context: Match.Any,
+        options: Match.Optional(Object),
+        // __messages: Match.Optional(Match.OneOf(String, [String], RegExp))
+    })));
+
+    return _Messenger_off.call(this, messages, subscriber);
+}
+
+
+function _Messenger_off(messages, subscriber) {
+    return _eachMessage.call(this, '_removeSubscriber', messages, subscriber);
+}</code></pre>
+          <section id="offMessages">
+            <h1>offMessages</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">function</div><span>offMessages()</span>
+            </p>
+          </section>
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>messageSubscribers</td>
+                <td></td>
+                <td><p>Map of message subscribers to be removed</p></td>
+              </tr>
+              <tr>
+                <td>return</td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p>Messenger instance method.<br />Unsubscribes from multiple messages passed as map together with subscribers.<br />Returns map with the same keys (message types) and boolean values indicating whether particular subscriber was removed.<br />If a subscriber for one of the messages is not supplied, all subscribers for this message will be removed.<br />Usage:</p><pre><code>myComp.events.offMessages({
+    &#39;mousedown&#39;: onMouseDown,
+    &#39;mouseup&#39;: onMouseUp,
+    &#39;click&#39;: undefined // all subscribers to this message will be removed
+});
+</code></pre><p>It is NOT possible to remove pattern subscriber(s) using this method, as although you can use RegExp as the key, JavaScript will automatically convert it to string.</p> </div>
+          <pre><code class="language-javascript">function offMessages(messageSubscribers) {
+    check(messageSubscribers, Match.ObjectHash(Match.Optional(Match.OneOf(Function, { subscriber: Function, context: Match.Any }))));
+
+    var subscriberRemovedMap = _.mapKeys(messageSubscribers, function(subscriber, messages) {
+        return this.off(messages, subscriber);
+    }, this);
+
+    return subscriberRemovedMap;
+}</code></pre>
+          <section id="Messenger$offAll">
+            <h1>Messenger$offAll</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">function</div><span>Messenger$offAll()</span>
+            </p>
+          </section>
+          <div class="description"><p>Unsubscribes all subscribers</p> </div>
+          <pre><code class="language-javascript">function Messenger$offAll() {
+    _offAllSubscribers.call(this, this._patternMessageSubscribers);
+    _offAllSubscribers.call(this, this._messageSubscribers);
+}
+
+
+function _offAllSubscribers(subscribersHash) {
+    _.eachKey(subscribersHash, function(subscribers, message) {
+        this._removeAllSubscribers(subscribersHash, message);
+    }, this);
+}
+
+
+// TODO - send event to messageSource</code></pre>
+          <section id="postMessage">
+            <h1>postMessage</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">function</div><span>postMessage()</span>
+            </p>
+          </section>
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>message</td>
+                <td>String,RegExp</td>
+                <td><p>message to be dispatched  If the message is a string, the subscribers registered with exactly this message will be called and also pattern subscribers registered with the pattern that matches the dispatched message.<br /> If the message is RegExp, only the subscribers registered with exactly this pattern will be called.</p></td>
+              </tr>
+              <tr>
+                <td>data</td>
+                <td>Any</td>
+                <td><p>data that will be passed to the subscriber as the second parameter. Messenger does not modify this data in any way.</p></td>
+              </tr>
+              <tr>
+                <td>callback</td>
+                <td>Function</td>
+                <td><p>optional callback to pass to subscriber</p></td>
+              </tr>
+              <tr>
+                <td>_synchronous</td>
+                <td>Boolean</td>
+                <td><p>if true passed, subscribers will be envoked synchronously apart from those that have <code>options.sync == false</code>. This parameter should not be used, instead postMessageSync should be used.</p></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p>Messenger instance method.<br />Dispatches the message calling all subscribers registered for this message and, if the message is a string, calling all pattern subscribers when message matches the pattern.<br />Each subscriber is passed the same parameters that are passed to theis method.<br />The context of the subscriber envocation is set to the host object (<code>this._hostObject</code>) that was passed to the messenger constructor.<br />Subscribers are called in the next tick (&quot;asynchronously&quot;) apart from those that were subscribed with <code>onSync</code> (or that have <code>options.sync == true</code>).</p> </div>
+          <pre><code class="language-javascript">function postMessage(message, data, callback, _synchronous) {
+    check(message, Match.OneOf(String, RegExp));
+    check(callback, Match.Optional(Function));
+
+    var subscribersHash = this._chooseSubscribersHash(message);
+    var msgSubscribers = subscribersHash[message];
+
+    this._callSubscribers(message, data, callback, msgSubscribers, _synchronous);
+
+    if (typeof message == 'string')
+        this._callPatternSubscribers(message, data, callback, msgSubscribers, _synchronous);
+}</code></pre>
+          <section id="postMessageSync">
+            <h1>postMessageSync</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">function</div><span>postMessageSync()</span>
+            </p>
+          </section>
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>message</td>
+                <td>String,RegExp</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>data</td>
+                <td>Any</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>callback</td>
+                <td>Function</td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p>Same as postMessage apart from envoking subscribers synchronously, apart from those subscribed with <code>onAsync</code> (or with <code>options.sync == false</code>).</p> </div>
+          <pre><code class="language-javascript">function postMessageSync(message, data, callback) {
+    this.postMessage(message, data, callback, true);
+}</code></pre>
+          <section id="getSubscribers">
+            <h1>getSubscribers</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">function</div><span>getSubscribers()</span> -><span>Array</span>
+            </p>
+          </section>
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>message</td>
+                <td>String,RegExp</td>
+                <td><p>Message to get subscribers for.  If the message is RegExp, only pattern subscribers registered with exactly this pattern will be returned.<br /> If the message is String, subscribers registered with the string messages and pattern subscribers registered with matching pattern will be returned (unless the second parameter is false).</p></td>
+              </tr>
+              <tr>
+                <td>includePatternSubscribers</td>
+                <td>Boolean</td>
+                <td><p>Optional false to prevent inclusion of patter subscribers, by default they are included.</p></td>
+              </tr>
+              <tr>
+                <td>return</td>
+                <td>Array</td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p>Messenger instance method.<br />Returns the array of subscribers that would be called if the message were dispatched.<br />If <code>includePatternSubscribers === false</code>, pattern subscribers with matching patters will not be included (by default they are included).<br />If there are no subscribers to the message, <code>undefined</code> will be returned, not an empty array, so it is safe to use the result in boolean tests.</p> </div>
+          <pre><code class="language-javascript">function getSubscribers(message, includePatternSubscribers) {
+    check(message, Match.OneOf(String, RegExp));
+
+    var subscribersHash = this._chooseSubscribersHash(message);
+    var msgSubscribers = subscribersHash[message]
+                            ? [].concat(subscribersHash[message])
+                            : [];
+
+    // pattern subscribers are incuded by default
+    if (includePatternSubscribers !== false &amp;&amp; typeof message == 'string') {
+        _.eachKey(this._patternMessageSubscribers,
+            function(patternSubscribers) {
+                var pattern = patternSubscribers.pattern;
+                if (patternSubscribers &amp;&amp; patternSubscribers.length
+                        &amp;&amp; pattern.test(message))
+                    _.appendArray(msgSubscribers, patternSubscribers);
+            }
+        );
+    }
+
+    // return undefined if there are no subscribers
+    return msgSubscribers.length
+                ? msgSubscribers
+                : undefined;
+}</code></pre>
+          <section id="_setMessageSource">
+            <h1>_setMessageSource</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">function</div><span>_setMessageSource()</span>
+            </p>
+          </section>
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th style="width:20%">Option name</th>
+                <th style="width:20%">Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>messageSource</td>
+                <td>MessageSource</td>
+                <td><p>an instance of MessageSource class to attach to this messenger (and to have this messenger attached to it too)</p></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="description"><p>Messenger instance method<br />Sets <a href="./m_source.js.html">MessageSource</a> for the messenger also setting the reference to the messenger in the MessageSource.<br />MessageSource can be passed to message constructor; this method allows to set it at a later time. For example, the subclasses of <a href="../components/c_facet.js.html">ComponentFacet</a> use this method to set different MessageSource&#39;es in the messenger that is created by ComponentFacet.<br />Currently the method is implemented in such way that it can be called only once - MessageSource cannot be changed after this method is called.</p> </div>
+          <pre><code class="language-javascript">function _setMessageSource(messageSource) {
+    check(messageSource, MessageSource);
+
+    _.defineProperty(this, '_messageSource', messageSource);
+    messageSource.messenger = this;
+}</code></pre>
+          <section id="getMessageSource">
+            <h1>getMessageSource</h1>
+            <h5 class="subheader"></h5>
+            <p>
+              <div class="label label-info radius ctx-type">function</div><span>getMessageSource()</span> -><span>MessageSource</span>
+            </p>
+          </section>
+          <div class="description"><p>Messenger instance method<br />Returns messenger MessageSource</p> </div>
+          <pre><code class="language-javascript">function getMessageSource() {
+    return this._messageSource
+}</code></pre>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="container">
+        <p>Documentation generated with <a href="https://github.com/FGRibreau/doxx">Doxx </a> created by <a href="https://twitter.com/FGRibreau" data-show-count="false" class="twitter-follow-button">Francois-Guillaume Ribreau </a></p>
+        <p>Doxx is sponsored by <a href="http://bringr.net/?btt" title="Outil d'analyse des réseaux sociaux" class="bringr">Bringr </a> and <a href="https://redsmin.com/?btt" title="Full Redis GUI" class="redsmin">Redsmin</a></p>
+        <p>Theme borrowed from Twitter Bootstrap</p>
+      </div>
+    </footer>
+    <script src="http://platform.twitter.com/widgets.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+    <script src="http://leaverou.github.com/prefixfree/prefixfree.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-transition.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-scrollspy.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-dropdown.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-collapse.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-affix.js"></script>
+    <script>
+      /**
+       * Prism: Lightweight, robust, elegant syntax highlighting
+       * MIT license http://www.opensource.org/licenses/mit-license.php/
+       * @author Lea Verou http://lea.verou.me
+       */(function(){var e=/\blang(?:uage)?-(?!\*)(\w+)\b/i,t=self.Prism={util:{type:function(e){return Object.prototype.toString.call(e).match(/\[object (\w+)\]/)[1]},clone:function(e){var n=t.util.type(e);switch(n){case"Object":var r={};for(var i in e)e.hasOwnProperty(i)&&(r[i]=t.util.clone(e[i]));return r;case"Array":return e.slice()}return e}},languages:{extend:function(e,n){var r=t.util.clone(t.languages[e]);for(var i in n)r[i]=n[i];return r},insertBefore:function(e,n,r,i){i=i||t.languages;var s=i[e],o={};for(var u in s)if(s.hasOwnProperty(u)){if(u==n)for(var a in r)r.hasOwnProperty(a)&&(o[a]=r[a]);o[u]=s[u]}return i[e]=o},DFS:function(e,n){for(var r in e){n.call(e,r,e[r]);t.util.type(e)==="Object"&&t.languages.DFS(e[r],n)}}},highlightAll:function(e,n){var r=document.querySelectorAll('code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code');for(var i=0,s;s=r[i++];)t.highlightElement(s,e===!0,n)},highlightElement:function(r,i,s){var o,u,a=r;while(a&&!e.test(a.className))a=a.parentNode;if(a){o=(a.className.match(e)||[,""])[1];u=t.languages[o]}if(!u)return;r.className=r.className.replace(e,"").replace(/\s+/g," ")+" language-"+o;a=r.parentNode;/pre/i.test(a.nodeName)&&(a.className=a.className.replace(e,"").replace(/\s+/g," ")+" language-"+o);var f=r.textContent;if(!f)return;f=f.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\u00a0/g," ");var l={element:r,language:o,grammar:u,code:f};t.hooks.run("before-highlight",l);if(i&&self.Worker){var c=new Worker(t.filename);c.onmessage=function(e){l.highlightedCode=n.stringify(JSON.parse(e.data));l.element.innerHTML=l.highlightedCode;s&&s.call(l.element);t.hooks.run("after-highlight",l)};c.postMessage(JSON.stringify({language:l.language,code:l.code}))}else{l.highlightedCode=t.highlight(l.code,l.grammar);l.element.innerHTML=l.highlightedCode;s&&s.call(r);t.hooks.run("after-highlight",l)}},highlight:function(e,r){return n.stringify(t.tokenize(e,r))},tokenize:function(e,n){var r=t.Token,i=[e],s=n.rest;if(s){for(var o in s)n[o]=s[o];delete n.rest}e:for(var o in n){if(!n.hasOwnProperty(o)||!n[o])continue;var u=n[o],a=u.inside,f=!!u.lookbehind||0;u=u.pattern||u;for(var l=0;l<i.length;l++){var c=i[l];if(i.length>e.length)break e;if(c instanceof r)continue;u.lastIndex=0;var h=u.exec(c);if(h){f&&(f=h[1].length);var p=h.index-1+f,h=h[0].slice(f),d=h.length,v=p+d,m=c.slice(0,p+1),g=c.slice(v+1),y=[l,1];m&&y.push(m);var b=new r(o,a?t.tokenize(h,a):h);y.push(b);g&&y.push(g);Array.prototype.splice.apply(i,y)}}}return i},hooks:{all:{},add:function(e,n){var r=t.hooks.all;r[e]=r[e]||[];r[e].push(n)},run:function(e,n){var r=t.hooks.all[e];if(!r||!r.length)return;for(var i=0,s;s=r[i++];)s(n)}}},n=t.Token=function(e,t){this.type=e;this.content=t};n.stringify=function(e){if(typeof e=="string")return e;if(Object.prototype.toString.call(e)=="[object Array]"){for(var r=0;r<e.length;r++)e[r]=n.stringify(e[r]);return e.join("")}var i={type:e.type,content:n.stringify(e.content),tag:"span",classes:["token",e.type],attributes:{}};i.type=="comment"&&(i.attributes.spellcheck="true");t.hooks.run("wrap",i);var s="";for(var o in i.attributes)s+=o+'="'+(i.attributes[o]||"")+'"';return"<"+i.tag+' class="'+i.classes.join(" ")+'" '+s+">"+i.content+"</"+i.tag+">"};if(!self.document){self.addEventListener("message",function(e){var n=JSON.parse(e.data),r=n.language,i=n.code;self.postMessage(JSON.stringify(t.tokenize(i,t.languages[r])));self.close()},!1);return}var r=document.getElementsByTagName("script");r=r[r.length-1];if(r){t.filename=r.src;document.addEventListener&&!r.hasAttribute("data-manual")&&document.addEventListener("DOMContentLoaded",t.highlightAll)}})();;
+      Prism.languages.markup={comment:/&lt;!--[\w\W]*?--(&gt;|&gt;)/g,prolog:/&lt;\?.+?\?&gt;/,doctype:/&lt;!DOCTYPE.+?&gt;/,cdata:/&lt;!\[CDATA\[[\w\W]+?]]&gt;/i,tag:{pattern:/&lt;\/?[\w:-]+\s*(?:\s+[\w:-]+(?:=(?:("|')(\\?[\w\W])*?\1|\w+))?\s*)*\/?&gt;/gi,inside:{tag:{pattern:/^&lt;\/?[\w:-]+/i,inside:{punctuation:/^&lt;\/?/,namespace:/^[\w-]+?:/}},"attr-value":{pattern:/=(?:('|")[\w\W]*?(\1)|[^\s>]+)/gi,inside:{punctuation:/=|&gt;|"/g}},punctuation:/\/?&gt;/g,"attr-name":{pattern:/[\w:-]+/g,inside:{namespace:/^[\w-]+?:/}}}},entity:/&amp;#?[\da-z]{1,8};/gi};Prism.hooks.add("wrap",function(e){e.type==="entity"&&(e.attributes.title=e.content.replace(/&amp;/,"&"))});;
+      Prism.languages.css={comment:/\/\*[\w\W]*?\*\//g,atrule:/@[\w-]+?(\s+[^;{]+)?(?=\s*{|\s*;)/gi,url:/url\((["']?).*?\1\)/gi,selector:/[^\{\}\s][^\{\}]*(?=\s*\{)/g,property:/(\b|\B)[a-z-]+(?=\s*:)/ig,string:/("|')(\\?.)*?\1/g,important:/\B!important\b/gi,ignore:/&(lt|gt|amp);/gi,punctuation:/[\{\};:]/g};Prism.languages.markup&&Prism.languages.insertBefore("markup","tag",{style:{pattern:/(&lt;|<)style[\w\W]*?(>|&gt;)[\w\W]*?(&lt;|<)\/style(>|&gt;)/ig,inside:{tag:{pattern:/(&lt;|<)style[\w\W]*?(>|&gt;)|(&lt;|<)\/style(>|&gt;)/ig,inside:Prism.languages.markup.tag.inside},rest:Prism.languages.css}}});;
+      Prism.languages.clike={comment:{pattern:/(^|[^\\])(\/\*[\w\W]*?\*\/|\/\/.*?(\r?\n|$))/g,lookbehind:!0},string:/("|')(\\?.)*?\1/g,keyword:/\b(if|else|while|do|for|return|in|instanceof|function|new|try|catch|finally|null|break|continue)\b/g,"boolean":/\b(true|false)\b/g,number:/\b-?(0x)?\d*\.?[\da-f]+\b/g,operator:/[-+]{1,2}|!|=?&lt;|=?&gt;|={1,2}|(&amp;){1,2}|\|?\||\?|\*|\//g,ignore:/&(lt|gt|amp);/gi,punctuation:/[{}[\];(),.:]/g};;
+      Prism.languages.javascript=Prism.languages.extend("clike",{keyword:/\b(var|let|if|else|while|do|for|return|in|instanceof|function|new|with|typeof|try|catch|finally|null|break|continue)\b/g,number:/\b(-?(0x)?\d*\.?[\da-f]+|NaN|-?Infinity)\b/g});Prism.languages.insertBefore("javascript","keyword",{regex:{pattern:/(^|[^/])\/(?!\/)(\[.+?]|\\.|[^/\r\n])+\/[gim]{0,3}(?=\s*($|[\r\n,.;})]))/g,lookbehind:!0}});Prism.languages.markup&&Prism.languages.insertBefore("markup","tag",{script:{pattern:/(&lt;|<)script[\w\W]*?(>|&gt;)[\w\W]*?(&lt;|<)\/script(>|&gt;)/ig,inside:{tag:{pattern:/(&lt;|<)script[\w\W]*?(>|&gt;)|(&lt;|<)\/script(>|&gt;)/ig,inside:Prism.languages.markup.tag.inside},rest:Prism.languages.javascript}}});;
+      
+    </script>
+    <!-- App js-->
+    <script>
+      $(function(){
+        var $window = $(window);
+        $('.scrollspy .nav').affix({
+          offset: {
+            top: function () { return $window.width() <= 980 ? 480 : 400 }
+          , bottom: 50
+          }
+        });
+      })
+    </script>
+  </body>
+</html>
