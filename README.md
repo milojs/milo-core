@@ -1,5 +1,5 @@
 # milo-core
-The part of milo that can be used with node.js
+The part of [milo](https://github.com/milojs/milo) that can be used with node.js
 
 It includes Messenger and Model (see milo). 
 
