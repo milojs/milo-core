@@ -1,6 +1,7 @@
 # milo-core
 The part of [milo](https://github.com/milojs/milo) that can be used with node.js
 
+[![Build Status](https://travis-ci.org/milojs/milo-core.svg?branch=master)](https://travis-ci.org/milojs/milo-core)
 [![Code Climate](https://codeclimate.com/github/milojs/milo-core/badges/gpa.svg)](https://codeclimate.com/github/milojs/milo-core)
 
 It includes [Messenger](http://milojs.github.io/milo-core/messenger/index.js.html)
