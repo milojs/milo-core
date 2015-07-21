@@ -160,7 +160,7 @@ var messengerTests = module.exports = function(getHostWithMessenger) {
         var called = {}, postedData = { 'test': 1 };
         host.post('event1', postedData);
 
-        _.defer(function() {
+        _.delay(function() {
             assert.deepEqual(called, {
                 'handler1': { msg: 'event1', data: { 'test': 1 } },
                 'handler2': { msg: 'event1', data: { 'test': 1 } }
@@ -169,7 +169,7 @@ var messengerTests = module.exports = function(getHostWithMessenger) {
             called = {}; postedData = { 'test': 2 };
             host.post('event3', postedData);
 
-            _.defer(function() {
+            _.delay(function() {
                 assert.deepEqual(called, {
                     'handler3': { msg: 'event3', data: { 'test': 2 } }
                 });
@@ -194,21 +194,19 @@ var messengerTests = module.exports = function(getHostWithMessenger) {
                     assert.deepEqual(result, { 'event1': true, 'event2': false, 'event3': true });
                     assert.deepEqual(messenger._messageSubscribers, {});
 
-                _.defer(function() {
+                _.delay(function() {
                     var called = {}, postedData = { 'test': 3 };
                     host.post('event1', postedData);
                     host.post('event2', postedData);
                     host.post('event3', postedData);
 
-                    _.defer(function() {
+                    _.delay(function() {
                         assert.deepEqual(called, {});
                         done();
-                    });                 
-                });
-            })
-
-        });
-
+                    }, 20);
+                }, 20);
+            }, 20);
+        }, 20);
     });
 
 
@@ -233,7 +231,7 @@ var messengerTests = module.exports = function(getHostWithMessenger) {
 
         host.post('event1', postedData);
 
-        _.defer(function() {
+        _.delay(function() {
             assert.equal(called.handler.msg, 'event1');
             assert.equal(called.handler.data, postedData);
 
@@ -242,7 +240,7 @@ var messengerTests = module.exports = function(getHostWithMessenger) {
             called = {};
             host.post('event1', postedData);
 
-            _.defer(function() {
+            _.delay(function() {
                 assert.deepEqual(called, {
                     handler: { msg: 'event1', data: { test: 1 } },
                     patternSubscriber: { msg: 'event1', data: { test: 1 } }
@@ -251,15 +249,15 @@ var messengerTests = module.exports = function(getHostWithMessenger) {
                 called = {};
                 host.post(/event.*/, postedData);
 
-                _.defer(function() {
+                _.delay(function() {
                     assert.deepEqual(called, {
                         patternSubscriber: { msg: /event.*/, data: { test: 1 } }
                     });
 
                     done();
-                });
-            });
-        }); 
+                }, 20);
+            }, 20);
+        }, 20); 
     });
 
 
@@ -320,7 +318,7 @@ var messengerTests = module.exports = function(getHostWithMessenger) {
 
         host.post('event', { test: 1 });
 
-        _.defer(function() {
+        _.delay(function() {
             assert.deepEqual(posted, { 'event': { test: 1 } });
 
             host.off('event', { subscriber: localHandler, context: myContext });
@@ -328,7 +326,7 @@ var messengerTests = module.exports = function(getHostWithMessenger) {
                 assert.deepEqual(subscribers, [{ subscriber: handler1, context: host }], 'should have 1 subscribers');
 
             done();
-        });
+        }, 20);
     });
 
 
@@ -347,10 +345,10 @@ var messengerTests = module.exports = function(getHostWithMessenger) {
         host.post('event', { test: 1 });
         host.post('event', { test: 2 });
 
-        _.defer(function() {
+        _.delay(function() {
             assert.deepEqual(posted, [{ msg: 'event', data: { test: 1 } }]);
             done();
-        });
+        }, 20);
     });
 
 
@@ -395,9 +393,9 @@ var messengerTests = module.exports = function(getHostWithMessenger) {
 
         assert.deepEqual(posted, []);
 
-        _.defer(function() {
+        _.delay(function() {
             assert.deepEqual(posted, [{ msg: 'event', data: { test: 1 } }]);
             done();
-        });
+        }, 20);
     });
 };

@@ -3,6 +3,7 @@
 var _ = require('mol-proto')
     , assert = require('assert')
     , check = require('../../lib/util/check')
+    , config = require('../../lib/config')
     , Match = check.Match;
 
 describe('check module', function() {
@@ -42,6 +43,14 @@ describe('check module', function() {
         undefined
     ];
 
+    before(function() {
+        config({ check: true });
+    });
+
+    after(function() {
+        config({ check: false });
+    });
+
     it('should match.test for different data types', function() {
         toTest.forEach(function(val, i) {
             assert(Match.test(val[0], val[1]), 'match.test ' + val[2]);
@@ -55,7 +64,7 @@ describe('check module', function() {
                 check(val[0], val[1]);
             }, 'check ' + val[2]);
             assert.throws(function() {
-                check(val[0], failValues[i]);
+                check(failValues[i], val[1]);
             }, 'check ' + val[2]);
         });
     });

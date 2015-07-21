@@ -121,18 +121,18 @@ describe('MessengerAPI class', function() {
         // dispatch on source
         sourceMsngr.postMessage('event', { id: 33, test: 1 });
 
-        _.defer(function() {
+        _.delay(function() {
             assert.deepEqual(handled, {});
 
             sourceMsngr.postMessage('event', { id: 12, test: 2 });
 
-            _.defer(function() {
+            _.delay(function() {
                 assert.deepEqual(handled, { 'event12': [{ handler: 1, data: { type: 'event12', test: 2 } }] });
 
                 handled = {};
                 sourceMsngr.postMessage('event', { id: 25, test: 3 });
 
-                _.defer(function(){
+                _.delay(function(){
                     assert.deepEqual(handled, { 'event25': [{ handler: 2, data: { type: 'event25', test: 3 } }] });
 
                     // subscribe to messenger, should subscribe to source
@@ -143,12 +143,12 @@ describe('MessengerAPI class', function() {
                     handled = {}
                     sourceMsngr.postMessage('message', { id: 55, test: 4 });
 
-                    _.defer(function() {
+                    _.delay(function() {
                         assert.deepEqual(handled, {});
 
                         sourceMsngr.postMessage('message', { id: 33, test: 5 });
 
-                        _.defer(function() {
+                        _.delay(function() {
                             assert.deepEqual(handled, {
                                 'message33': [
                                     { handler: 1, data: { type: 'message33', test: 5 } },
@@ -156,11 +156,11 @@ describe('MessengerAPI class', function() {
                                 ]
                             }); 
                             done();
-                        });
-                    });
-                });
-            });
-        });
+                        }, 20);
+                    }, 20);
+                }, 20);
+            }, 20);
+        }, 20);
     });
 
 
@@ -178,7 +178,7 @@ describe('MessengerAPI class', function() {
         // dispatch on source - should dispatch on messenger when id matches internal message
         sourceMsngr.postMessage('event', { id: 12, test: 2 });
 
-        _.defer(function() {
+        _.delay(function() {
             assert.deepEqual(handled, { 'event12': [{ handler: 1, data: { type: 'event12', test: 2 } }] });
 
             // now unsubscribe
@@ -195,10 +195,10 @@ describe('MessengerAPI class', function() {
             sourceMsngr.postMessage('event', { id: 12, test: 3 });
             sourceMsngr.postMessage('event', { id: 25, test: 4 });
 
-            _.defer(function() {
+            _.delay(function() {
                 assert.deepEqual(handled, {});
                 done();
-            });
-        });
+            }, 20);
+        }, 20);
     });
 });

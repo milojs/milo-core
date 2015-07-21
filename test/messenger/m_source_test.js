@@ -67,7 +67,7 @@ describe('MessageSource class', function() {
         // dispatch on source
         sourceMsngr.postMessage('event1', { test: 1 });
 
-        _.defer(function() {
+        _.delay(function() {
             assert.deepEqual(handled, { event1: { handler: 1, data: { test: 1 } } });
 
             // subscribe to messenger another handler, should subscribe to source
@@ -79,15 +79,15 @@ describe('MessageSource class', function() {
             sourceMsngr.postMessage('event1', { test: 1 });
             sourceMsngr.postMessage('event2', { test: 2 });
 
-            _.defer(function() {
+            _.delay(function() {
                 assert.deepEqual(handled, {
                     'event1': { handler: 1, data: { test: 1 } },
                     'event2': { handler: 2, data: { test: 2 } }
                 });
 
                 done();
-            });
-        });
+            }, 20);
+        }, 20);
     });
 
 
@@ -116,7 +116,7 @@ describe('MessageSource class', function() {
         // dispatch on source
         sourceMsngr.postMessage('event3', { test: 3 });
 
-        _.defer(function() {
+        _.delay(function() {
                 assert.deepEqual(handled, { event3: { handler: 1, data: { test: 3 } } });
 
             // unsubscribe all handlers
@@ -129,12 +129,12 @@ describe('MessageSource class', function() {
             // dispatch on source
             sourceMsngr.postMessage('event3', { test: 4 });
 
-            _.defer(function() {
+            _.delay(function() {
                 // should not be dispatched on messenger
                 assert.deepEqual(handled, {});
 
                 done();
-            });
-        });
+            }, 20);
+        }, 20);
     });
 });
