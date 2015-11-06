@@ -1,6 +1,6 @@
 {
   "name": "milo-core",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "node.js compatible part of milo",
   "main": "lib/milo-core.js",
   "browserify": {
@@ -9,7 +9,8 @@
     ]
   },
   "scripts": {
-    "test": "NODE_ENV=test ./node_modules/.bin/mocha --recursive --reporter=spec"
+    "test-spec": "NODE_ENV=test ./node_modules/.bin/mocha --recursive --reporter=spec",
+    "test": "NODE_ENV=test istanbul cover -x 'test' node_modules/mocha/bin/_mocha -- --recursive --reporter=spec"
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,7 @@
   "devDependencies": {
     "async": "^0.9.0",
     "benchmark": "^1.0.0",
+    "istanbul": "^0.4.0",
     "mocha": "^2.1.0"
   }
 }
