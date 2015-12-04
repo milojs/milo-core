@@ -1,6 +1,10 @@
 {
   "name": "milo-core",
+<<<<<<< 303e62fc4068853b8f3e4c1857aef3cd14564a62
   "version": "0.2.3",
+=======
+  "version": "1.0.0",
+>>>>>>> package bump
   "description": "node.js compatible part of milo",
   "main": "lib/milo-core.js",
   "browserify": {
@@ -24,7 +28,7 @@
   "homepage": "https://github.com/milojs/milo-core",
   "dependencies": {
     "dot": "^1.0.3",
-    "mol-proto": "^0.1.15"
+    "protojs": "^1.0.1"
   },
   "devDependencies": {
     "async": "^0.9.0",
