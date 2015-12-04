@@ -1,10 +1,6 @@
 {
   "name": "milo-core",
-<<<<<<< 303e62fc4068853b8f3e4c1857aef3cd14564a62
-  "version": "0.2.3",
-=======
   "version": "1.0.0",
->>>>>>> package bump
   "description": "node.js compatible part of milo",
   "main": "lib/milo-core.js",
   "browserify": {
