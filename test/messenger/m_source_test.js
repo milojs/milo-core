@@ -2,7 +2,7 @@
 
 var MyMessageSource = require('./my_m_source')
     , Messenger = require('../../lib/milo-core').Messenger
-    , _ = require('mol-proto')
+    , _ = require('protojs')
     , assert = require('assert');
 
 

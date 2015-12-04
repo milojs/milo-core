@@ -5,7 +5,7 @@ var milo = require('../../lib/milo-core')
     , MessengerMessageSource = milo.classes.MessengerMessageSource
     , MessengerRegexpAPI = milo.classes.MessengerRegexpAPI
     , assert = require('assert')
-    , _ = require('mol-proto');
+    , _ = require('protojs');
 
 describe('MessengerMessageSource and MessengerRegexpAPI', function(done) {
     var internalMessenger, messenger;

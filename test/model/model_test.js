@@ -4,7 +4,7 @@
 var Model = require('../../lib/milo-core').Model
     , ModelPath = Model.Path
     , assert = require('assert')
-    , _ = require('mol-proto');
+    , _ = require('protojs');
 
 
 describe('Model class', function() {

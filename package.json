@@ -24,7 +24,7 @@
   "homepage": "https://github.com/milojs/milo-core",
   "dependencies": {
     "dot": "^1.0.3",
-    "protojs": "^1.0.1"
+    "protojs": "^1.0.2"
   },
   "devDependencies": {
     "async": "^0.9.0",

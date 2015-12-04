@@ -4,7 +4,7 @@ var milo = require('../../lib/milo-core')
     , MessengerAPI = milo.classes.MessengerAPI
     , MyMessageSource = require('./my_m_source')
     , Messenger = milo.Messenger
-    , _ = require('mol-proto')
+    , _ = require('protojs')
     , assert = require('assert');
 
 

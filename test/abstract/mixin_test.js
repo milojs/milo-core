@@ -2,7 +2,7 @@
 
 var Mixin = require('../../lib/milo-core').classes.Mixin
     ,  assert = require('assert')
-    , _ = require('mol-proto');
+    , _ = require('protojs');
 
 
 describe('Mixin', function() {

@@ -1,6 +1,6 @@
 'use strict';
 
-var _ = require('mol-proto')
+var _ = require('protojs')
     , assert = require('assert')
     , check = require('../../lib/util/check')
     , config = require('../../lib/config')

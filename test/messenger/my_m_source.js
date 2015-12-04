@@ -1,7 +1,7 @@
 'use strict';
 
 var MessageSource = require('../../lib/milo-core').classes.MessageSource
-    , _ = require('mol-proto');
+    , _ = require('protojs');
 
 // Although it is made for the test only, this MessageSource subclass uses
 // another Messenger as its source. Can be used somewhere in app to chain messengers.

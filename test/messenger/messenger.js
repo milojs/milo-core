@@ -1,7 +1,7 @@
 'use strict';
 
 
-var _ = require('mol-proto')
+var _ = require('protojs')
     , check = require('../../lib/milo-core').util.check
     , Match = check.Match
     , assert = require('assert');

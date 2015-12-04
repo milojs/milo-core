@@ -4,7 +4,7 @@
 var milo = require('../../lib/milo-core')
     , Model = milo.Model
     , assert = require('assert')
-    , _ = require('mol-proto');
+    , _ = require('protojs');
 
 
 describe('Connector', function() {
