@@ -1,6 +1,6 @@
 {
   "name": "milo-core",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "node.js compatible part of milo",
   "main": "lib/milo-core.js",
   "browserify": {
