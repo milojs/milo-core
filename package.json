@@ -25,6 +25,7 @@
   "dependencies": {
     "dot": "^1.0.3",
     "ml-check": "^0.1.1",
+    "ml-mixin": "^0.1.0",
     "protojs": "^1.0.3"
   },
   "devDependencies": {
