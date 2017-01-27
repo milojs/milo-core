@@ -10,7 +10,7 @@ var _subscriber;
 function subscriber() { _subscriber(); }
 messenger.on('test', subscriber);
 messenger.on(/testing/, subscriber);
- 
+
 
 // 2 june 2015:
 // Message delivery x 345 ops/sec ±1.57% (66 runs sampled)

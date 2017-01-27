@@ -89,7 +89,7 @@ var messengerTests = module.exports = function(getHostWithMessenger) {
         assert.equal(messenger._messageSubscribers.event3.length, 1, 'event3 has 1 subscriber');
         assert(host.off('event3', handler2), 'handler2 removed from event3');
         assert(Match.test(messenger._messageSubscribers.event3, undefined), 'event3 has no subscribers');
-        
+
         assert(host.off(/test1/), 'remove pattern subscriber');
         assert(Match.test(messenger._patternMessageSubscribers['/test1/'], undefined), 'pattern event is undefined');
     });
@@ -132,10 +132,10 @@ var messengerTests = module.exports = function(getHostWithMessenger) {
                 'event3': handler3
             };
 
-        assert.deepEqual(host.onEvents(events), {event1: true, 'event1 event2': true, event3: true}, 
+        assert.deepEqual(host.onEvents(events), {event1: true, 'event1 event2': true, event3: true},
             'add subscribers with events hash');
         assert(Match.test(messenger._messageSubscribers, Match.ObjectHash([Object])), '_messageSubscribers is set');
-        assert.deepEqual(host.onEvents(events), {event1: false, 'event1 event2': false, event3: false}, 
+        assert.deepEqual(host.onEvents(events), {event1: false, 'event1 event2': false, event3: false},
             'add subscribers with events hash second time');
     });
 
@@ -216,7 +216,7 @@ var messengerTests = module.exports = function(getHostWithMessenger) {
             , messenger = result.messenger
             , postedData = { test: 1 }
             , called = {};
-        
+
         function handler(msg, data) {
             assert.equal(this, host);
             called['handler'] = { msg: msg, data: data };
@@ -257,7 +257,7 @@ var messengerTests = module.exports = function(getHostWithMessenger) {
                     done();
                 }, 20);
             }, 20);
-        }, 20); 
+        }, 20);
     });
 
 
@@ -287,7 +287,7 @@ var messengerTests = module.exports = function(getHostWithMessenger) {
                 { subscriber: handler1, context: host },
                 { subscriber: patternSubscriber, context: host }
             ]);
-        
+
         // pattern subscriber will NOT be included
         var event1_Subscribers = host.getListeners('event1', false);
 
@@ -395,6 +395,46 @@ var messengerTests = module.exports = function(getHostWithMessenger) {
 
         _.delay(function() {
             assert.deepEqual(posted, [{ msg: 'event', data: { test: 1 } }]);
+            done();
+        }, 20);
+    });
+
+    it('should unsubscribe all events when disposed', function () {
+        var result = getHostWithMessenger()
+            , host = result.host
+            , messenger = result.messenger
+            , posted = [];
+
+        function localHandler(msg, data) {
+            posted.push(msg);
+        };
+        function noop() {}
+
+        host.on('event', localHandler);
+        host.destroy();
+        host.postMessageSync('event');
+
+        assert.deepEqual(posted, []);
+    });
+
+    it('should not emit asynchronous events if host is destroyed synchronously', function (done) {
+        var result = getHostWithMessenger()
+            , host = result.host
+            , messenger = result.messenger
+            , posted = [];
+
+        function localHandler(msg, data) {
+            posted.push(msg);
+        };
+        function noop() {}
+
+        host.on('event', localHandler);
+        host.post('event', {}, noop, false);
+        host.destroy();
+
+        assert.deepEqual(posted, []);
+        _.delay(function() {
+            assert.deepEqual(posted, []);
             done();
         }, 20);
     });
