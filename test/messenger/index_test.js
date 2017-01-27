@@ -18,7 +18,8 @@ describe('Messenger class', function() {
             offEvents: 'offMessages',
             post: 'postMessage',
             postMessageSync: 'postMessageSync',
-            getListeners: 'getSubscribers'
+            getListeners: 'getSubscribers',
+            destroy: 'destroy'
         });
         return {host: host, messenger: messenger};
     }

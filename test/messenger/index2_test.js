@@ -23,7 +23,8 @@ describe('Messenger class with methods on host class prototype', function() {
         offEvents: 'offMessages',
         post: 'postMessage',
         postMessageSync: 'postMessageSync',
-        getListeners: 'getSubscribers'
+        getListeners: 'getSubscribers',
+        destroy: 'destroy'
     });
 
 
