@@ -1,6 +1,6 @@
 {
   "name": "milo-core",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "node.js compatible part of milo",
   "main": "lib/milo-core.js",
   "browserify": {
@@ -26,7 +26,7 @@
     "dot": "^1.0.3",
     "ml-check": "^0.1.1",
     "ml-mixin": "^0.1.0",
-    "protojs": "^1.0.3"
+    "protojs": "^1.0.5"
   },
   "devDependencies": {
     "async": "^2.0.1",
